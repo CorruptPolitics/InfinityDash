@@ -19,8 +19,8 @@ public class GeneratePlatforms : MonoBehaviour {
 	void Update () {
         if (transform.position.x < generationPoint.position.x)
         {
-            distanceBetweenPlatforms = Random.Range(6.0f, 9.0f);
-            transform.position = new Vector3(transform.position.x + platformWidth + distanceBetweenPlatforms, transform.position.y, transform.position.z);
+            distanceBetweenPlatforms = Random.Range(6.0f, 9.5f);
+            transform.position = new Vector3(transform.position.x + platformWidth + distanceBetweenPlatforms, transform.position.y + Random.Range(-1.0f, 1.0f), transform.position.z);
             Instantiate(platformToSpawn, transform.position, transform.rotation);
         }
 	}
