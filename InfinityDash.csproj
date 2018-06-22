@@ -290,6 +290,7 @@
     <Compile Include="Assets\Scripts\GeneratePlatforms.cs" />
     <Compile Include="Assets\Scripts\KillBox.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooling.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
