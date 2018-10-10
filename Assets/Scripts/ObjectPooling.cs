@@ -6,9 +6,7 @@ public class ObjectPooling : MonoBehaviour
 {
 
     public GameObject poolObject;
-
     public int poolAmount;
-
     List<GameObject> poolObjects;
 
     // Use this for initialization
