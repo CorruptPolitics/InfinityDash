@@ -5,6 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float moveSpeed;
+
+    //These 3 variables speed up game over time
+    public float speedMultiplier;
+    public float distanceTraveled;
+    private float travelCount;
+
+    //Theses 3 control jumping heights
     public float jumpHeight;
     public float jumpTime;
     private float jumpCounterTime;
@@ -13,23 +20,35 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool isGrounded;
     public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float groundCheckRadius;
 
-    private Collider2D playerCollider;
+    //private Collider2D playerCollider;
 
-    private Animator playerAnimation;
+    //private Animator playerAnimation;
 
 	// Use this for initialization
 	void Start () {
         playerRigidbody = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<Collider2D>();
-        playerAnimation = GetComponent<Animator>();
+        //playerCollider = GetComponent<Collider2D>();
+        //playerAnimation = GetComponent<Animator>();
         jumpCounterTime = jumpTime;
+        travelCount = distanceTraveled;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        isGrounded = Physics2D.IsTouchingLayers(playerCollider, groundLayer);
+        //isGrounded = Physics2D.IsTouchingLayers(playerCollider, groundLayer);
+
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (transform.position.x > travelCount)
+        {
+            travelCount += distanceTraveled;
+            distanceTraveled += distanceTraveled * speedMultiplier;
+            moveSpeed = moveSpeed * speedMultiplier;
+        }
 
         playerRigidbody.velocity = new Vector2(moveSpeed, playerRigidbody.velocity.y);
 
@@ -64,7 +83,7 @@ public class PlayerMovement : MonoBehaviour {
             jumpCounterTime = jumpTime;
         }
 
-        playerAnimation.SetFloat("Speed", playerRigidbody.velocity.x);
-        playerAnimation.SetBool("Grounded", isGrounded);
+        //playerAnimation.SetFloat("Speed", playerRigidbody.velocity.x);
+        //playerAnimation.SetBool("Grounded", isGrounded);
 	}
 }
