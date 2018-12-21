@@ -193,6 +193,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 2010924189}
   groundCheckRadius: 0.1
+  theGameManager: {fileID: 368728888}
 --- !u!33 &21148182
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 368728887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae40ba2f5da5fb4d940dc147b2e1ce2, type: 3}
+  m_Script: {fileID: 11500000, guid: 984e14c002c0bec408a3c662a276cc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platformGenerator: {fileID: 1870391799}
@@ -506,7 +507,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1104957043758250, guid: 1af8fabcf87611e41a64f519cb4ae687,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114941784021295664, guid: 1af8fabcf87611e41a64f519cb4ae687, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1af8fabcf87611e41a64f519cb4ae687, type: 3}
 --- !u!1 &425959195 stripped
 GameObject:
@@ -589,7 +591,7 @@ GameObject:
   - component: {fileID: 705611479}
   m_Layer: 8
   m_Name: Catcher
-  m_TagString: Untagged
+  m_TagString: killzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -878,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a6d964f4057c14ba4d1484e8128553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObject: {fileID: 425959195}
+  poolObject: {fileID: 1104957043758250, guid: 1af8fabcf87611e41a64f519cb4ae687, type: 3}
   poolAmount: 2
 --- !u!1001 &1737746617
 PrefabInstance:

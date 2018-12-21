@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     public float moveSpeed;
+    private float moveSpeedStore;
 
     //These 3 variables speed up game over time
     public float speedMultiplier;
     public float distanceTraveled;
+    private float distaceTraveledStore;
     private float travelCount;
+    private float travelCountStore;
 
     //Theses 3 control jumping heights
     public float jumpHeight;
@@ -23,21 +27,30 @@ public class PlayerMovement : MonoBehaviour {
     public Transform groundCheck;
     public float groundCheckRadius;
 
+    public GameManager theGameManager;
+
+
     //private Collider2D playerCollider;
 
     //private Animator playerAnimation;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         playerRigidbody = GetComponent<Rigidbody2D>();
         //playerCollider = GetComponent<Collider2D>();
         //playerAnimation = GetComponent<Animator>();
         jumpCounterTime = jumpTime;
         travelCount = distanceTraveled;
+
+        moveSpeedStore = moveSpeed;
+        travelCountStore = travelCount;
+        distaceTraveledStore = distanceTraveled;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
         //isGrounded = Physics2D.IsTouchingLayers(playerCollider, groundLayer);
 
@@ -86,4 +99,17 @@ public class PlayerMovement : MonoBehaviour {
         //playerAnimation.SetFloat("Speed", playerRigidbody.velocity.x);
         //playerAnimation.SetBool("Grounded", isGrounded);
 	}
+
+    void OnCollisionEnter2D (Collision2D other)
+    {
+        if (other.gameObject.tag == "killzone")
+        {
+            theGameManager.RestartGame();
+            moveSpeed = moveSpeedStore;
+            travelCount = travelCountStore;
+            distanceTraveled = distaceTraveledStore;
+        }
+    }
+
+
 }

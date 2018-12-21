@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public PlayerMovement thePlayer;
     //declares the point at which the player starts
     private Vector3 playerStartPoint;
+    private DestroyPlatforms[] platformList;
+
 
 
     // Use this for initialization
@@ -41,6 +43,13 @@ public class GameManager : MonoBehaviour
         thePlayer.gameObject.SetActive(false);
         //sets a hlaf second delay before game restarts
         yield return new WaitForSeconds(0.5f);
+        //sets platforms with the PlatformDestroyer script attached to inactive and returns them to object pool
+        platformList = FindObjectsOfType<DestroyPlatforms>();
+        for (int i = 0; i < platformList.Length; i++)
+        {
+            platformList[i].gameObject.SetActive(false);
+        }
+
         //sets the players transform position back to the player start point
         thePlayer.transform.position = playerStartPoint;
         //sets the platformGenerator's position back to the platform start point

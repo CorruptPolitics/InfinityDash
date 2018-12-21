@@ -117,5 +117,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec567084ce44e34eba5fd5929c1da35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformDestructionPoint: {fileID: 1801525835969932, guid: 7900979b60b9f574cb2afd503ee0a478,
+  platformDestructionPoint: {fileID: 1153322741190138, guid: 0246f15971d380f4e84e1f065e846add,
     type: 3}
