@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     //declares the point at which the player starts
     private Vector3 playerStartPoint;
     private DestroyPlatforms[] platformList;
-
+    private ScoreManager theScoreManager;
 
 
     // Use this for initialization
@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
         platformStartPoint = platformGenerator.position;
         //sets the player start point to the original position of the player game object
         playerStartPoint = thePlayer.transform.position;
+
+        theScoreManager = FindObjectOfType<ScoreManager>();
+
     }
 
     // Update is called once per frame
@@ -39,9 +42,11 @@ public class GameManager : MonoBehaviour
     //declare co-routine named RestartGameCo using IEnumerator
     public IEnumerator RestartGameCo()
     {
+        //when the player dies stop the score from increasing
+        theScoreManager.scoreIncreasing = false;
         //makes the player invisible while "dead"
         thePlayer.gameObject.SetActive(false);
-        //sets a hlaf second delay before game restarts
+        //sets a half second delay before game restarts
         yield return new WaitForSeconds(0.5f);
         //sets platforms with the PlatformDestroyer script attached to inactive and returns them to object pool
         platformList = FindObjectsOfType<DestroyPlatforms>();
@@ -56,6 +61,8 @@ public class GameManager : MonoBehaviour
         platformGenerator.position = platformStartPoint;
         //turns the player visible again
         thePlayer.gameObject.SetActive(true);
+        theScoreManager.scoreCount = 0;
+        theScoreManager.scoreIncreasing = true;
     }
 
 }
