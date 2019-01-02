@@ -24,6 +24,9 @@ public class GeneratePlatforms : MonoBehaviour {
     public float maxHeightDifference;
     private float heightChange;
 
+    private CoinGenerator coinGen;
+    public float randomCoinPercentage;
+
     //public GameObject[] platformsToSpawn;
 
 
@@ -40,6 +43,8 @@ public class GeneratePlatforms : MonoBehaviour {
 
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
+
+        coinGen = FindObjectOfType<CoinGenerator>();
 	}
 	
 	// Update is called once per frame
@@ -67,6 +72,11 @@ public class GeneratePlatforms : MonoBehaviour {
             newPlaform.transform.position = transform.position;
             newPlaform.transform.rotation = transform.rotation;
             newPlaform.SetActive(true);
+
+            if (Random.Range(0f, 100f) < randomCoinPercentage)
+            {
+                coinGen.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
 
             transform.position = new Vector3(transform.position.x + (platformWidths[selectPlatform] / 2), transform.position.y, transform.position.z);
 
