@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
 
     public GameManager theGameManager;
+    //Jump variables
+    private bool notJumping;
+    private bool doubleJump;
 
 
     //private Collider2D playerCollider;
@@ -46,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeedStore = moveSpeed;
         travelCountStore = travelCount;
         distaceTraveledStore = distanceTraveled;
+        notJumping = true;
 	}
 	
 	// Update is called once per frame
@@ -71,11 +75,20 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded)
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
+                notJumping = false;
+            }
+
+            if (!isGrounded && doubleJump == true)
+            {
+                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
+                jumpCounterTime = jumpTime;
+                notJumping = false;
+                doubleJump = false;
             }
         }
 
-        //Depending on how hard the jump is pressed, the player will jump to that response.
-        if (Input.GetKey(KeyCode.Space))
+        //Depending on how hard the jump is pressed, the player will jump to that response.  Also checks for when jump is pressed
+        if (Input.GetKey(KeyCode.Space) && !notJumping)
         {
             if (jumpCounterTime > 0)
             {
@@ -88,12 +101,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             jumpCounterTime = 0;
+            notJumping = true;
         }
 
         //Resets JumpTime
         if (isGrounded)
         {
             jumpCounterTime = jumpTime;
+            doubleJump = true;
         }
 
         //playerAnimation.SetFloat("Speed", playerRigidbody.velocity.x);
@@ -104,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "killzone")
         {
-            theGameManager.RestartGame();
+            theGameManager.RestartValues();
             moveSpeed = moveSpeedStore;
             travelCount = travelCountStore;
             distanceTraveled = distaceTraveledStore;

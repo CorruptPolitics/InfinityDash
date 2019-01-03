@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private DestroyPlatforms[] platformList;
     private ScoreManager theScoreManager;
 
+    public DeathMenu deathCanvas;
+
 
     // Use this for initialization
     void Start()
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         playerStartPoint = thePlayer.transform.position;
 
         theScoreManager = FindObjectOfType<ScoreManager>();
+        deathCanvas.gameObject.SetActive(false);
 
     }
 
@@ -35,11 +38,36 @@ public class GameManager : MonoBehaviour
     }
 
     //call our co-routine
-    public void RestartGame()
+    public void RestartValues()
     {
-        StartCoroutine("RestartGameCo");
+        //when the player dies stop the score from increasing
+        theScoreManager.scoreIncreasing = false;
+        //makes the player invisible while "dead"
+        thePlayer.gameObject.SetActive(false);
+        //Display death canvas
+        deathCanvas.gameObject.SetActive(true);
+        //StartCoroutine("RestartGameCo");
     }
-    //declare co-routine named RestartGameCo using IEnumerator
+
+    public void Restart()
+    {
+        //sets platforms with the PlatformDestroyer script attached to inactive and returns them to object pool
+        platformList = FindObjectsOfType<DestroyPlatforms>();
+        for (int i = 0; i < platformList.Length; i++)
+        {
+            platformList[i].gameObject.SetActive(false);
+        }
+        //sets the players transform position back to the player start point
+        thePlayer.transform.position = playerStartPoint;
+        //sets the platformGenerator's position back to the platform start point
+        platformGenerator.position = platformStartPoint;
+        //turns the player visible again
+        thePlayer.gameObject.SetActive(true);
+        theScoreManager.scoreCount = 0;
+        theScoreManager.scoreIncreasing = true;
+    }
+
+    /*declare co-routine named RestartGameCo using IEnumerator
     public IEnumerator RestartGameCo()
     {
         //when the player dies stop the score from increasing
@@ -63,6 +91,6 @@ public class GameManager : MonoBehaviour
         thePlayer.gameObject.SetActive(true);
         theScoreManager.scoreCount = 0;
         theScoreManager.scoreIncreasing = true;
-    }
+    }*/
 
 }
