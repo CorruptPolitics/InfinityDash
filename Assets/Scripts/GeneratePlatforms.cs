@@ -27,6 +27,11 @@ public class GeneratePlatforms : MonoBehaviour {
     private CoinGenerator coinGen;
     public float randomCoinPercentage;
 
+    //These variables control powerups and when and where they spawn.
+    public float powerUpHeight;
+    public ObjectPooling powerUpPool;
+    public float powerUpPercentage;
+
     //public GameObject[] platformsToSpawn;
 
 
@@ -51,7 +56,7 @@ public class GeneratePlatforms : MonoBehaviour {
 	void Update () {
         if (transform.position.x < generationPoint.position.x)
         {
-            distanceBetweenPlatforms = Random.Range(6.0f, 8.0f);
+            distanceBetweenPlatforms = Random.Range(6.0f, 10.0f);
             selectPlatform = Random.Range(0, poolObjects.Length);
             heightChange = transform.position.y + Random.Range(maxHeightDifference, -maxHeightDifference);
 
@@ -63,6 +68,13 @@ public class GeneratePlatforms : MonoBehaviour {
             else if (heightChange < minHeight)
             {
                 heightChange = minHeight;
+            }
+
+            if (Random.Range(0f, 100f) < powerUpPercentage)
+            {
+                GameObject newPowerUp = powerUpPool.GetPoolObject();
+                newPowerUp.transform.position = transform.position + new Vector3(distanceBetweenPlatforms / 2f, Random.Range(powerUpHeight / 2, powerUpHeight), 0f);
+                newPowerUp.SetActive(true);
             }
 
             transform.position = new Vector3(transform.position.x + (platformWidths[selectPlatform] / 2) + distanceBetweenPlatforms, heightChange, transform.position.z);

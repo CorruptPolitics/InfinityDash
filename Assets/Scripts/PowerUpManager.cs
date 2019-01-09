@@ -6,6 +6,7 @@ public class PowerUpManager : MonoBehaviour
 {
     //Script checks which powerups to use and how much time is left.
     private bool doublePoints;
+    private bool lowerGravity;
     private bool powerUpActive;
     private float powerUpCountDown;
 

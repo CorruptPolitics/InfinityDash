@@ -6,14 +6,41 @@ public class PowerUps : MonoBehaviour
 {
     //List of powerups.  So far just double points
     public bool doublePoints;
+    public bool lowerGravity;
     public float  powerUpTimer;
 
     private PowerUpManager thePowerUpManager;
+
+    public Sprite[] powerUpIcons;
+    private float xCollider = 1;
+    private float yCollider = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         thePowerUpManager = FindObjectOfType<PowerUpManager>();
+    }
+
+    void Awake()
+    {
+        int powerUpSelector = Random.Range(0, 2);
+
+        switch (powerUpSelector)
+        {
+            case 0:
+                gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;
+                doublePoints = true;
+                break;
+
+            case 1:
+                gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
+                gameObject.GetComponent<BoxCollider2D>().size = new Vector2(xCollider, yCollider);
+                lowerGravity = true;
+                break;
+        }
+
+        GetComponent<SpriteRenderer>().sprite = powerUpIcons[powerUpSelector];
+
     }
 
     // Update is called once per frame
