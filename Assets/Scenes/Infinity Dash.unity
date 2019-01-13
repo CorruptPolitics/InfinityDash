@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd26a502e1a27f4591ad4ac1699dd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   moveSpeed: 7
   speedMultiplier: 1.05
   distanceTraveled: 100
@@ -2105,7 +2106,7 @@ PrefabInstance:
     - target: {fileID: 114953789979610534, guid: 448b58c4eab1c9f4f9f1add62c786273,
         type: 3}
       propertyPath: randomCoinPercentage
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114953789979610534, guid: 448b58c4eab1c9f4f9f1add62c786273,
         type: 3}

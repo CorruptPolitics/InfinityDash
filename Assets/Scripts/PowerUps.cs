@@ -6,7 +6,7 @@ public class PowerUps : MonoBehaviour
 {
     //List of powerups.  So far just double points
     public bool doublePoints;
-    public bool lowerGravity;
+    public bool coinMagnet;
     public float  powerUpTimer;
 
     private PowerUpManager thePowerUpManager;
@@ -35,7 +35,7 @@ public class PowerUps : MonoBehaviour
             case 1:
                 gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
                 gameObject.GetComponent<BoxCollider2D>().size = new Vector2(xCollider, yCollider);
-                lowerGravity = true;
+                coinMagnet = true;
                 break;
         }
 
@@ -53,7 +53,7 @@ public class PowerUps : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            thePowerUpManager.ActivatePowerUp(doublePoints, powerUpTimer);
+            thePowerUpManager.ActivatePowerUp(doublePoints, coinMagnet, powerUpTimer);
         }
         gameObject.SetActive(false);
     }

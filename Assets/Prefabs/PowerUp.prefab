@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doublePoints: 0
-  lowerGravity: 0
+  coinMagnet: 0
   powerUpTimer: 10
   powerUpIcons:
   - {fileID: 21300000, guid: 6cdbe06495cf7d8448994938a18b6629, type: 3}
