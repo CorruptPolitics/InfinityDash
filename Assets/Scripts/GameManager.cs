@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     private Vector3 playerStartPoint;
     private DestroyPlatforms[] platformList;
     private ScoreManager theScoreManager;
+    public Text finalScore;
 
     public DeathMenu deathCanvas;
 
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         playerStartPoint = thePlayer.transform.position;
 
         theScoreManager = FindObjectOfType<ScoreManager>();
+        finalScore.text = theScoreManager.scoreText.text;
         deathCanvas.gameObject.SetActive(false);
 
     }
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour
         theScoreManager.scoreIncreasing = false;
         //makes the player invisible while "dead"
         thePlayer.gameObject.SetActive(false);
+        //Display Score
+        finalScore.text = "Your Final " + theScoreManager.scoreText.text;
         //Display death canvas
         deathCanvas.gameObject.SetActive(true);
         //StartCoroutine("RestartGameCo");

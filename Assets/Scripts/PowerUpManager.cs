@@ -38,7 +38,7 @@ public class PowerUpManager : MonoBehaviour
                 theScoreManager.doubleScore = true;
             }
 
-            //Pick up magnet, coins come to player in certain distance. Perhaps an uprgrade in the future?
+            //Pick up magnet, coins come to player in certain distance. Perhaps an upgrade in the future?
             if (coinMagnet)
             {
                 theCoins = GameObject.FindGameObjectsWithTag("pickup");
