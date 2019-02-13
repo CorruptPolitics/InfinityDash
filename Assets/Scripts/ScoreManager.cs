@@ -8,6 +8,9 @@ public class ScoreManager : MonoBehaviour
 
     public Text scoreText;
     public Text highScoreText;
+    public Text timerText;
+
+    public float startTime;
 
     public float scoreCount;
     public float highScoreCount;
@@ -25,16 +28,31 @@ public class ScoreManager : MonoBehaviour
         {
             highScoreCount = PlayerPrefs.GetFloat("Highscore");
         }
+        startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        float t = Time.time - startTime;
+        string minutes = ((int)t / 60).ToString();
+        string seconds = (t % 60).ToString("f2");
+
+        if (seconds.Length == 4)
+        {
+            timerText.text = minutes + ":" + "0" + seconds;
+        }
+
+        else
+        {
+            ChangeText(minutes, seconds);
+        }
+
         if (scoreIncreasing)
         {
             scoreCount += pointsPerSecond * Time.deltaTime;
         }
-        
 
         if (scoreCount > highScoreCount)
         {
@@ -44,6 +62,12 @@ public class ScoreManager : MonoBehaviour
 
         scoreText.text = "Score: " + Mathf.Round (scoreCount);
         highScoreText.text = "Highscore: " + Mathf.Round (highScoreCount);
+    }
+
+    //Quick function to chnage text
+    void ChangeText(string minute, string second)
+    {
+        timerText.text = minute + ":" + second;
     }
 
     //Function created for multiple ways to add score

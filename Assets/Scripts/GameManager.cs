@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private DestroyPlatforms[] platformList;
     private ScoreManager theScoreManager;
     public Text finalScore;
+    public Text finalTime;
 
     public DeathMenu deathCanvas;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
 
         theScoreManager = FindObjectOfType<ScoreManager>();
         finalScore.text = theScoreManager.scoreText.text;
+        finalTime.text = theScoreManager.timerText.text;
         deathCanvas.gameObject.SetActive(false);
 
     }
@@ -49,6 +51,8 @@ public class GameManager : MonoBehaviour
         thePlayer.gameObject.SetActive(false);
         //Display Score
         finalScore.text = "Your Final " + theScoreManager.scoreText.text;
+        //Display Time
+        finalTime.text = "Your Time This Run: " + theScoreManager.timerText.text;
         //Display death canvas
         deathCanvas.gameObject.SetActive(true);
         //StartCoroutine("RestartGameCo");
