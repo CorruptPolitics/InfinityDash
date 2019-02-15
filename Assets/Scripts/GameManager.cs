@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
         thePlayer.gameObject.SetActive(false);
         //Display Score
         finalScore.text = "Your Final " + theScoreManager.scoreText.text;
+        //Stop timer
+        theScoreManager.isAlive = false;
         //Display Time
         finalTime.text = "Your Time This Run: " + theScoreManager.timerText.text;
         //Display death canvas
@@ -72,7 +74,13 @@ public class GameManager : MonoBehaviour
         platformGenerator.position = platformStartPoint;
         //turns the player visible again
         thePlayer.gameObject.SetActive(true);
+        //Reset the score
         theScoreManager.scoreCount = 0;
+        //Set player to be alive
+        theScoreManager.isAlive = true;
+        //Reset timer
+        theScoreManager.ResetTimer();
+        //Begin new score increase
         theScoreManager.scoreIncreasing = true;
     }
 

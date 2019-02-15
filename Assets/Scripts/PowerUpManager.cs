@@ -7,8 +7,10 @@ public class PowerUpManager : MonoBehaviour
     //Script checks which powerups to use and how much time is left.
     private bool doublePoints;
     private bool coinMagnet;
-    private bool powerUpActive;
+    public bool powerUpActive;
     private float powerUpCountDown;
+    private GameObject doublePointsText;
+    private GameObject coinMagnetText;
 
     private ScoreManager theScoreManager;
     private Transform playerTransform;
@@ -19,6 +21,10 @@ public class PowerUpManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        doublePointsText = GameObject.Find("DoublePointsText");
+        coinMagnetText = GameObject.Find("CoinMagnetText");
+        doublePointsText.SetActive(false);
+        coinMagnetText.SetActive(false);
         theScoreManager = FindObjectOfType<ScoreManager>();
         playerTransform = GameObject.Find("Player").transform;
     }
@@ -34,6 +40,7 @@ public class PowerUpManager : MonoBehaviour
             //Picks up powerup, double points!
             if (doublePoints)
             {
+                StartCoroutine("DisplayPowerUp");
                 theScoreManager.pointsPerSecond = normalPointValue * 2;
                 theScoreManager.doubleScore = true;
             }
@@ -41,6 +48,7 @@ public class PowerUpManager : MonoBehaviour
             //Pick up magnet, coins come to player in certain distance. Perhaps an upgrade in the future?
             if (coinMagnet)
             {
+                StartCoroutine("DisplayPowerUp");
                 theCoins = GameObject.FindGameObjectsWithTag("pickup");
                 foreach (GameObject coin in theCoins)
                 {
@@ -69,5 +77,23 @@ public class PowerUpManager : MonoBehaviour
         powerUpCountDown = timer;
         normalPointValue = theScoreManager.pointsPerSecond;
         powerUpActive = true;
+    }
+
+    //Function that displays a text for what powerup was picked up
+    IEnumerator DisplayPowerUp()
+    {
+        if (doublePoints)
+        {
+            doublePointsText.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            doublePointsText.SetActive(false);
+        }
+
+        if (coinMagnet)
+        {
+            coinMagnetText.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            coinMagnetText.SetActive(false);
+        }
     }
 }

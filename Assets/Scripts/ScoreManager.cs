@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     public Text highScoreText;
     public Text timerText;
 
+    public bool isAlive;
+
     public float startTime;
 
     public float scoreCount;
@@ -24,6 +26,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = true;
         if (PlayerPrefs.HasKey("Highscore"))
         {
             highScoreCount = PlayerPrefs.GetFloat("Highscore");
@@ -34,40 +37,48 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        float t = Time.time - startTime;
-        string minutes = ((int)t / 60).ToString();
-        string seconds = (t % 60).ToString("f2");
-
-        if (seconds.Length == 4)
+        if (isAlive)
         {
-            timerText.text = minutes + ":" + "0" + seconds;
-        }
+            float t = Time.time - startTime;
+            string minutes = ((int)t / 60).ToString();
+            string seconds = (t % 60).ToString("f2");
 
-        else
-        {
-            ChangeText(minutes, seconds);
-        }
+            if (seconds.Length == 4)
+            {
+                timerText.text = minutes + ":" + "0" + seconds;
+            }
 
-        if (scoreIncreasing)
-        {
-            scoreCount += pointsPerSecond * Time.deltaTime;
-        }
+            else
+            {
+                ChangeText(minutes, seconds);
+            }
 
-        if (scoreCount > highScoreCount)
-        {
-            highScoreCount = scoreCount;
-            PlayerPrefs.SetFloat("Highscore", highScoreCount);
-        }
+            if (scoreIncreasing)
+            {
+                scoreCount += pointsPerSecond * Time.deltaTime;
+            }
 
-        scoreText.text = "Score: " + Mathf.Round (scoreCount);
-        highScoreText.text = "Highscore: " + Mathf.Round (highScoreCount);
+            if (scoreCount > highScoreCount)
+            {
+                highScoreCount = scoreCount;
+                PlayerPrefs.SetFloat("Highscore", highScoreCount);
+            }
+
+            scoreText.text = "Score: " + Mathf.Round(scoreCount);
+            highScoreText.text = "Highscore: " + Mathf.Round(highScoreCount);
+        }
     }
 
     //Quick function to chnage text
     void ChangeText(string minute, string second)
     {
         timerText.text = minute + ":" + second;
+    }
+
+    //Reset the timer
+    public void ResetTimer()
+    {
+        startTime = Time.time;
     }
 
     //Function created for multiple ways to add score
