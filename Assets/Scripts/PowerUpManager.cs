@@ -11,6 +11,7 @@ public class PowerUpManager : MonoBehaviour
     private float powerUpCountDown;
     private GameObject doublePointsText;
     private GameObject coinMagnetText;
+    private bool doublePointsPickup;
 
     private ScoreManager theScoreManager;
     private Transform playerTransform;
@@ -27,6 +28,7 @@ public class PowerUpManager : MonoBehaviour
         coinMagnetText.SetActive(false);
         theScoreManager = FindObjectOfType<ScoreManager>();
         playerTransform = GameObject.Find("Player").transform;
+        doublePointsPickup = false;
     }
 
     // Update is called once per frame
@@ -38,8 +40,9 @@ public class PowerUpManager : MonoBehaviour
             powerUpCountDown -= Time.deltaTime;
 
             //Picks up powerup, double points!
-            if (doublePoints)
+            if (doublePoints && !doublePointsPickup)
             {
+                doublePointsPickup = true;
                 StartCoroutine("DisplayPowerUp");
                 theScoreManager.pointsPerSecond = normalPointValue * 2;
                 theScoreManager.doubleScore = true;

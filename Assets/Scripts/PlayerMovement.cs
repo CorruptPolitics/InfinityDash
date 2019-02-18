@@ -36,7 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
     //private Collider2D playerCollider;
 
-    //private Animator playerAnimation;
+    //Animation Components
+    private Animator playerAnimation;
+    private bool playerJumpTrigger;
 
 	// Use this for initialization
 	void Start ()
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Transform>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         //playerCollider = GetComponent<Collider2D>();
-        //playerAnimation = GetComponent<Animator>();
+        playerAnimation = GetComponent<Animator>();
         jumpCounterTime = jumpTime;
         travelCount = distanceTraveled;
 
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         travelCountStore = travelCount;
         distaceTraveledStore = distanceTraveled;
         notJumping = true;
+        playerJumpTrigger = false;
 	}
 	
 	// Update is called once per frame
@@ -62,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
+        //Game speed increases the more distance the player goes
         if (transform.position.x > travelCount)
         {
             travelCount += distanceTraveled;
@@ -76,7 +80,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded)
             {
+                //Invoke("PlayJumpAnim", .0001f);
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
+                playerJumpTrigger = true;
                 notJumping = false;
             }
 
@@ -84,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
                 jumpCounterTime = jumpTime;
+                playerJumpTrigger = false;
                 notJumping = false;
                 doubleJump = false;
             }
@@ -128,5 +135,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void PlayJumpAnim()
+    {
+        playerAnimation.SetTrigger("PlayerJumpTrigger");
+    }
 
 }
