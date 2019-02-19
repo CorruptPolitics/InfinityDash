@@ -43,4 +43,9 @@ public class MainMenu : MonoBehaviour {
         mainMenu.enabled = false;
         gameStore.enabled = true;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
