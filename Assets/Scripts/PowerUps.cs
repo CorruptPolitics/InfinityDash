@@ -12,8 +12,6 @@ public class PowerUps : MonoBehaviour
     private PowerUpManager thePowerUpManager;
 
     public Sprite[] powerUpIcons;
-    private float xCollider = 1;
-    private float yCollider = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +31,7 @@ public class PowerUps : MonoBehaviour
                 break;
 
             case 1:
-                gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
-                gameObject.GetComponent<BoxCollider2D>().size = new Vector2(xCollider, yCollider);
+                gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;              
                 coinMagnet = true;
                 break;
         }

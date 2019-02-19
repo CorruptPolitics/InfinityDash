@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class PowerUpManager : MonoBehaviour
     private bool coinMagnet;
     public bool powerUpActive;
     private float powerUpCountDown;
-    private GameObject doublePointsText;
-    private GameObject coinMagnetText;
+    private GameObject doubleObject;
+    private GameObject magnetObject;
+    private Text doublePointsText;
+    private Text coinMagnetText;
     private bool doublePointsPickup;
 
     private ScoreManager theScoreManager;
@@ -22,10 +25,12 @@ public class PowerUpManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doublePointsText = GameObject.Find("DoublePointsText");
-        coinMagnetText = GameObject.Find("CoinMagnetText");
-        doublePointsText.SetActive(false);
-        coinMagnetText.SetActive(false);
+        doubleObject = GameObject.Find("DoublePointsText");
+        magnetObject = GameObject.Find("CoinMagnetText");
+        doublePointsText = doubleObject.GetComponent<Text>();
+        coinMagnetText = magnetObject.GetComponent<Text>();
+        doublePointsText.enabled = false;
+        coinMagnetText.enabled = false;
         theScoreManager = FindObjectOfType<ScoreManager>();
         playerTransform = GameObject.Find("Player").transform;
         doublePointsPickup = false;
@@ -87,16 +92,16 @@ public class PowerUpManager : MonoBehaviour
     {
         if (doublePoints)
         {
-            doublePointsText.SetActive(true);
+            doublePointsText.enabled = true;
             yield return new WaitForSeconds(3f);
-            doublePointsText.SetActive(false);
+            doublePointsText.enabled = false;
         }
 
         if (coinMagnet)
         {
-            coinMagnetText.SetActive(true);
+            coinMagnetText.enabled = true;
             yield return new WaitForSeconds(3f);
-            coinMagnetText.SetActive(false);
+            coinMagnetText.enabled = false;
         }
     }
 }

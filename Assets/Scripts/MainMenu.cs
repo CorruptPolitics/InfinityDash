@@ -4,14 +4,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public Canvas mainMenu;
-    public Canvas gameStore;
     public Canvas credits;
-
 	// Use this for initialization
 	void Start () {
 
         credits.enabled = false;
-        gameStore.enabled = false;
 		
 	}
 	
@@ -34,14 +31,7 @@ public class MainMenu : MonoBehaviour {
     public void BackButton()
     {
         credits.enabled = false;
-        gameStore.enabled = false;
         mainMenu.enabled = true;
-    }
-
-    public void OpenStore()
-    {
-        mainMenu.enabled = false;
-        gameStore.enabled = true;
     }
 
     public void QuitGame()
