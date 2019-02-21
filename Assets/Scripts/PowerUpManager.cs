@@ -44,7 +44,8 @@ public class PowerUpManager : MonoBehaviour
             //set countdown timer in the heirarchy inspector. Countsdown every second.
             powerUpCountDown -= Time.deltaTime;
 
-            //Picks up powerup, double points!
+            //Picks up powerup, double points! 
+            //Also checks to not stack double points if ever happens. Upgrade in Progress
             if (doublePoints && !doublePointsPickup)
             {
                 doublePointsPickup = true;
@@ -53,7 +54,8 @@ public class PowerUpManager : MonoBehaviour
                 theScoreManager.doubleScore = true;
             }
 
-            //Pick up magnet, coins come to player in certain distance. Perhaps an upgrade in the future?
+            //Pick up magnet, coins come to player in certain distance. 
+            //Upgrade in progress.
             if (coinMagnet)
             {
                 StartCoroutine("DisplayPowerUp");
