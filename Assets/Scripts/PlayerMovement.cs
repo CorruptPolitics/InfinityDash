@@ -135,9 +135,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void PlayJumpAnim()
-    {
-        playerAnimation.SetTrigger("PlayerJumpTrigger");
-    }
-
 }
