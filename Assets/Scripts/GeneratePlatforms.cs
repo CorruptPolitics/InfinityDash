@@ -24,7 +24,7 @@ public class GeneratePlatforms : MonoBehaviour {
     public float maxHeightDifference;
     private float heightChange;
 
-    private CoinGenerator coinGen;
+    private PointGeneration coinGen;
     public float randomCoinPercentage;
 
     //These variables control powerups and when and where they spawn.
@@ -49,7 +49,7 @@ public class GeneratePlatforms : MonoBehaviour {
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
 
-        coinGen = FindObjectOfType<CoinGenerator>();
+        coinGen = FindObjectOfType<PointGeneration>();
 	}
 	
 	// Update is called once per frame

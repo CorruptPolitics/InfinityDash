@@ -1735,7 +1735,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53.2, y: -87.52507}
+  m_AnchoredPosition: {x: -0.000011444092, y: -0.0000076293945}
   m_SizeDelta: {x: 1096.2, y: 339.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049842664
@@ -2380,5 +2380,15 @@ PrefabInstance:
       propertyPath: coinMagnet
       value: 
       objectReference: {fileID: 1335990984}
+    - target: {fileID: 5841803264838550546, guid: e08579a9ec6c5254b901b9ad3c13acc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DoublePointsInMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841803265293154891, guid: e08579a9ec6c5254b901b9ad3c13acc7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CoinMagnetInMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08579a9ec6c5254b901b9ad3c13acc7, type: 3}

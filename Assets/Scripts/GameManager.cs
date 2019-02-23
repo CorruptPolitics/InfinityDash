@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private Vector3 playerStartPoint;
     private DestroyPlatforms[] platformList;
     private ScoreManager theScoreManager;
+    private AudioSource theAudioSource;
+    GameObject audioSource;
     public Text finalScore;
     public Text finalTime;
 
@@ -28,6 +30,9 @@ public class GameManager : MonoBehaviour
         platformStartPoint = platformGenerator.position;
         //sets the player start point to the original position of the player game object
         playerStartPoint = thePlayer.transform.position;
+
+        audioSource = GameObject.Find("Main Camera");
+        theAudioSource = audioSource.GetComponent<AudioSource>();
 
         theScoreManager = FindObjectOfType<ScoreManager>();
         finalScore.text = theScoreManager.scoreText.text;
@@ -57,6 +62,8 @@ public class GameManager : MonoBehaviour
         finalTime.text = "Your Time This Run: " + theScoreManager.timerText.text;
         //Display death canvas
         deathCanvas.gameObject.SetActive(true);
+        //Stop the Music
+        theAudioSource.Stop();
         //StartCoroutine("RestartGameCo");
     }
 
@@ -82,6 +89,8 @@ public class GameManager : MonoBehaviour
         theScoreManager.ResetTimer();
         //Begin new score increase
         theScoreManager.scoreIncreasing = true;
+        //Start music 
+        theAudioSource.Play();
     }
 
     /*declare co-routine named RestartGameCo using IEnumerator

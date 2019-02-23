@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 80825826}
   m_Layer: 0
-  m_Name: Canvases
+  m_Name: UpgradeCanvases
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3862,7 +3862,7 @@ GameObject:
   - component: {fileID: 1488905505}
   - component: {fileID: 1488905506}
   m_Layer: 0
-  m_Name: CoinGenerator
+  m_Name: PointGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
