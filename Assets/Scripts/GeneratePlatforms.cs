@@ -24,8 +24,9 @@ public class GeneratePlatforms : MonoBehaviour {
     public float maxHeightDifference;
     private float heightChange;
 
-    private PointGeneration coinGen;
+    private PointGeneration pointGenerator;
     public float randomCoinPercentage;
+    public float randomPointPercentage;
 
     //These variables control powerups and when and where they spawn.
     public float powerUpHeight;
@@ -49,7 +50,7 @@ public class GeneratePlatforms : MonoBehaviour {
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
 
-        coinGen = FindObjectOfType<PointGeneration>();
+        pointGenerator = FindObjectOfType<PointGeneration>();
 	}
 	
 	// Update is called once per frame
@@ -87,7 +88,12 @@ public class GeneratePlatforms : MonoBehaviour {
 
             if (Random.Range(0f, 100f) < randomCoinPercentage)
             {
-                coinGen.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+                pointGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+
+            if (Random.Range(0f, 100f) < randomPointPercentage)
+            {
+                pointGenerator.SpawnPointPickups(new Vector3(transform.position.x, transform.position.y + Random.Range(1f, 4f)));
             }
 
             transform.position = new Vector3(transform.position.x + (platformWidths[selectPlatform] / 2), transform.position.y, transform.position.z);

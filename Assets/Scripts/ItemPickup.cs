@@ -6,6 +6,9 @@ public class ItemPickup : MonoBehaviour
 {
 
     public int coinScore;
+    public bool isCoin;
+    public int pointPickup50;
+    public bool is50Points;
 
     private ScoreManager scoreManager;
 
@@ -13,6 +16,7 @@ public class ItemPickup : MonoBehaviour
     void Start()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
+
     }
 
     // Update is called once per frame
@@ -23,9 +27,15 @@ public class ItemPickup : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (isCoin == true)
         {
             scoreManager.AddScore(coinScore);
+            gameObject.SetActive(false);
+        }
+
+        if (is50Points == true)
+        {
+            scoreManager.AddScore(pointPickup50);
             gameObject.SetActive(false);
         }
     }

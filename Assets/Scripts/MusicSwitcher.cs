@@ -7,6 +7,7 @@ public class MusicSwitcher : MonoBehaviour
     public GameObject hackButton;
     public GameObject heatButton;
     public GameObject raceButton;
+    public GameObject exitMusic;
     public AudioSource audioManager;
     public AudioClip hackMusic;
     public AudioClip heatSeekMusic;
@@ -19,6 +20,7 @@ public class MusicSwitcher : MonoBehaviour
         hackButton.SetActive(false);
         heatButton.SetActive(false);
         raceButton.SetActive(false);
+        exitMusic.SetActive(false);
     }
 
     public void OpenMusicClips()
@@ -26,6 +28,15 @@ public class MusicSwitcher : MonoBehaviour
         hackButton.SetActive(true);
         heatButton.SetActive(true);
         raceButton.SetActive(true);
+        exitMusic.SetActive(true);
+    }
+
+    public void CloseMusicClips()
+    {
+        hackButton.SetActive(false);
+        heatButton.SetActive(false);
+        raceButton.SetActive(false);
+        exitMusic.SetActive(false);
     }
 
     public void StartHackMusic()
@@ -35,6 +46,7 @@ public class MusicSwitcher : MonoBehaviour
         hackButton.SetActive(false);
         heatButton.SetActive(false);
         raceButton.SetActive(false);
+        exitMusic.SetActive(false);
     }
 
     public void StartHeatSeeker()
@@ -44,6 +56,7 @@ public class MusicSwitcher : MonoBehaviour
         hackButton.SetActive(false);
         heatButton.SetActive(false);
         raceButton.SetActive(false);
+        exitMusic.SetActive(false);
     }
 
     public void StartRaceMusic()
@@ -53,5 +66,6 @@ public class MusicSwitcher : MonoBehaviour
         hackButton.SetActive(false);
         heatButton.SetActive(false);
         raceButton.SetActive(false);
+        exitMusic.SetActive(false);
     }
 }

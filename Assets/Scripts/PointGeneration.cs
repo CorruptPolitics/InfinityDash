@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PointGeneration : MonoBehaviour
 {
-
+    //Coin Objects
     public ObjectPooling coinPool;
     public float distanceBetweenCoins;
     GameObject[] coins;
     private int coinNumber;
+
+    //Other Point Pickups
+    public ObjectPooling points50;
+
 
     public void SpawnCoins(Vector3 startPosition)
     {
@@ -52,5 +56,12 @@ public class PointGeneration : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void SpawnPointPickups(Vector3 startPosition)
+    {
+        GameObject PointPickup50 = points50.GetPoolObject();
+        PointPickup50.transform.position = startPosition;
+        PointPickup50.SetActive(true);
     }
 }

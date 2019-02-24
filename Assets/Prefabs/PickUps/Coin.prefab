@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinScore: 10
+  isCoin: 1
+  pointPickup50: 0
+  is50Points: 0
 --- !u!114 &5095633801451121058
 MonoBehaviour:
   m_ObjectHideFlags: 0
