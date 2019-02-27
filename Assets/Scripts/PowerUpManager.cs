@@ -75,6 +75,9 @@ public class PowerUpManager : MonoBehaviour
                 theScoreManager.pointsPerSecond = normalPointValue;
                 powerUpActive = false;
                 theScoreManager.doubleScore = false;
+                doublePoints = false;
+                doublePointsPickup = false;
+                coinMagnet = false;
             }
         }
     }

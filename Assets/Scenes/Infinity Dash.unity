@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 1998865649860872663, guid: 1daa4074f3dfc644db0410c6fdbc69d6,
     type: 3}
-  poolAmount: 10
+  poolAmount: 3
 --- !u!1 &1440560390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4441,7 +4441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 5822857000240211790, guid: a2232b89c217c43439f093af7af236bd,
     type: 3}
-  poolAmount: 30
+  poolAmount: 15
 --- !u!114 &1728667704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5042,7 +5042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObject: {fileID: 5671725061440188657, guid: 1e44355bdae093841820e128de4b98be,
     type: 3}
-  poolAmount: 5
+  poolAmount: 3
 --- !u!4 &1974399617
 Transform:
   m_ObjectHideFlags: 0

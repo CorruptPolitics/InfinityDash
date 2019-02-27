@@ -93,7 +93,10 @@ public class GeneratePlatforms : MonoBehaviour {
 
             if (Random.Range(0f, 100f) < randomPointPercentage)
             {
-                pointGenerator.SpawnPointPickups(new Vector3(transform.position.x, transform.position.y + Random.Range(1f, 4f)));
+                if (maxHeight <= 3)
+                    pointGenerator.SpawnPointPickups(new Vector3(transform.position.x, transform.position.y + Random.Range(2f, 4f), transform.position.z));
+                else
+                    pointGenerator.SpawnPointPickups(new Vector3(transform.position.x, transform.position.y + Random.Range(2f, 2.5f), transform.position.z));
             }
 
             transform.position = new Vector3(transform.position.x + (platformWidths[selectPlatform] / 2), transform.position.y, transform.position.z);
