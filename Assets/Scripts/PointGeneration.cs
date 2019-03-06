@@ -12,6 +12,7 @@ public class PointGeneration : MonoBehaviour
 
     //Other Point Pickups
     public ObjectPooling points50;
+    public ObjectPooling diamondUpgrade;
 
 
     public void SpawnCoins(Vector3 startPosition)
@@ -63,5 +64,12 @@ public class PointGeneration : MonoBehaviour
         GameObject PointPickup50 = points50.GetPoolObject();
         PointPickup50.transform.position = startPosition;
         PointPickup50.SetActive(true);
+    }
+
+    public void SpawnDiamond(Vector3 startPosition)
+    {
+        GameObject diamondPickup = diamondUpgrade.GetPoolObject();
+        diamondPickup.transform.position = startPosition;
+        diamondPickup.SetActive(true);
     }
 }

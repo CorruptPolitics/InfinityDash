@@ -37,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
     //private Collider2D playerCollider;
 
     //Animation Components
-    private Animator playerAnimation;
-    private bool playerJumpTrigger;
+    //private Animator playerAnimation;
+    //private bool playerJumpTrigger;
 
 	// Use this for initialization
 	void Start ()
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Transform>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         //playerCollider = GetComponent<Collider2D>();
-        playerAnimation = GetComponent<Animator>();
+        //playerAnimation = GetComponent<Animator>();
         jumpCounterTime = jumpTime;
         travelCount = distanceTraveled;
 
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         travelCountStore = travelCount;
         distaceTraveledStore = distanceTraveled;
         notJumping = true;
-        playerJumpTrigger = false;
+        //playerJumpTrigger = false;
 	}
 	
 	// Update is called once per frame
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //Invoke("PlayJumpAnim", .0001f);
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
-                playerJumpTrigger = true;
+                //playerJumpTrigger = true;
                 notJumping = false;
             }
 
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
                 jumpCounterTime = jumpTime;
-                playerJumpTrigger = false;
+                //playerJumpTrigger = false;
                 notJumping = false;
                 doubleJump = false;
             }

@@ -9,6 +9,7 @@ public class ItemPickup : MonoBehaviour
     public bool isCoin;
     public int pointPickup50;
     public bool is50Points;
+    public bool isDiamond;
 
     private ScoreManager scoreManager;
 
@@ -36,6 +37,14 @@ public class ItemPickup : MonoBehaviour
         if (is50Points == true)
         {
             scoreManager.AddScore(pointPickup50);
+            gameObject.SetActive(false);
+        }
+
+        if (isDiamond == true)
+        {
+            scoreManager.gemCount++;
+            scoreManager.gemPickedUp = true;
+            PlayerPrefs.SetInt("Gems", scoreManager.gemCount);
             gameObject.SetActive(false);
         }
     }

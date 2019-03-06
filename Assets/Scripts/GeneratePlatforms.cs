@@ -27,6 +27,7 @@ public class GeneratePlatforms : MonoBehaviour {
     private PointGeneration pointGenerator;
     public float randomCoinPercentage;
     public float randomPointPercentage;
+    public float randomDiamondPercentage;
 
     //These variables control powerups and when and where they spawn.
     public float powerUpHeight;
@@ -47,7 +48,7 @@ public class GeneratePlatforms : MonoBehaviour {
             platformWidths[i] = poolObjects[i].poolObject.GetComponent<BoxCollider2D>().size.x;
         }
 
-        minHeight = transform.position.y;
+        minHeight = -3.5f;
         maxHeight = maxHeightPoint.position.y;
 
         pointGenerator = FindObjectOfType<PointGeneration>();
@@ -94,9 +95,21 @@ public class GeneratePlatforms : MonoBehaviour {
             if (Random.Range(0f, 100f) < randomPointPercentage)
             {
                 if (maxHeight <= 3)
-                    pointGenerator.SpawnPointPickups(new Vector3(transform.position.x, transform.position.y + Random.Range(2f, 4f), transform.position.z));
+                    pointGenerator.SpawnPointPickups(transform.position + new Vector3(distanceBetweenPlatforms / 2f, Random.Range(2f, 4f), transform.position.z));
                 else
-                    pointGenerator.SpawnPointPickups(new Vector3(transform.position.x, transform.position.y + Random.Range(2f, 2.5f), transform.position.z));
+                    pointGenerator.SpawnPointPickups(transform.position + new Vector3(distanceBetweenPlatforms / 2f, Random.Range(1f, 2f), transform.position.z));
+            }
+
+            if (Random.Range(0f, 100f) < randomDiamondPercentage)
+            {
+                if (minHeight < -2.5)
+                {
+                    pointGenerator.SpawnDiamond(transform.position + new Vector3(distanceBetweenPlatforms / 2f, Random.Range(2f, 4f), transform.position.z));
+                }
+                else
+                {
+                    pointGenerator.SpawnDiamond(transform.position + new Vector3(distanceBetweenPlatforms / 2f, Random.Range(1f, 2f), transform.position.z));
+                }
             }
 
             transform.position = new Vector3(transform.position.x + (platformWidths[selectPlatform] / 2), transform.position.y, transform.position.z);

@@ -7,16 +7,24 @@ public class PauseMenu : MonoBehaviour
 {
     public string mainMenuLevel;
     public GameObject pauseMenu;
+    MusicSwitcher theMusic;
+
+    private void Start()
+    {
+        theMusic = FindObjectOfType<MusicSwitcher>();
+    }
 
     public void PauseGame()
     {
         Time.timeScale = 0f;
+        theMusic.audioManager.Pause();
         pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f;
+        theMusic.audioManager.Play();
         pauseMenu.SetActive(false);
     }
 

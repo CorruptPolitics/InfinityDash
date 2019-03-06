@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     public Text scoreText;
     public Text highScoreText;
     public Text timerText;
+    public Text gemCounterText;
 
     public bool isAlive;
 
@@ -16,6 +17,8 @@ public class ScoreManager : MonoBehaviour
 
     public float scoreCount;
     public float highScoreCount;
+    public int gemCount;
+    public bool gemPickedUp;
 
     public float pointsPerSecond;
 
@@ -26,11 +29,9 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CheckValues();
         isAlive = true;
-        if (PlayerPrefs.HasKey("Highscore"))
-        {
-            highScoreCount = PlayerPrefs.GetFloat("Highscore");
-        }
+        gemCounterText.text = "Gems: " + gemCount;
         startTime = Time.time;
     }
 
@@ -64,6 +65,11 @@ public class ScoreManager : MonoBehaviour
                 PlayerPrefs.SetFloat("Highscore", highScoreCount);
             }
 
+            if (gemPickedUp)
+            {
+                gemCounterText.text= "Gems: " + gemCount;
+            }
+
             scoreText.text = "Score: " + Mathf.Round(scoreCount);
             highScoreText.text = "Highscore: " + Mathf.Round(highScoreCount);
         }
@@ -89,5 +95,17 @@ public class ScoreManager : MonoBehaviour
             pointsToAdd *= 2;
         }
         scoreCount += pointsToAdd;
+    }
+
+    void CheckValues()
+    {
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+            highScoreCount = PlayerPrefs.GetFloat("Highscore");
+        }
+        if (PlayerPrefs.HasKey("Gems"))
+        {
+            gemCount = PlayerPrefs.GetInt("Gems");
+        }
     }
 }
