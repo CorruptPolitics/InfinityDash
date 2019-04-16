@@ -12,7 +12,7 @@ public class Upgrades : MonoBehaviour
     GameObject theMainMenu;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Upgrade.enabled = false;
         doublePoints.enabled = false;

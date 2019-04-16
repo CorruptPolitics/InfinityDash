@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
     public bool doubleScore;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         thePlayer = FindObjectOfType<PlayerMovement>();
         CheckValues();

@@ -16,11 +16,12 @@ public class PowerUps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        thePowerUpManager = FindObjectOfType<PowerUpManager>();
+        
     }
 
     void Awake()
     {
+        thePowerUpManager = FindObjectOfType<PowerUpManager>();
         int powerUpSelector = Random.Range(0, 2);
 
         switch (powerUpSelector)

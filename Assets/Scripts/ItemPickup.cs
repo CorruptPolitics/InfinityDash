@@ -14,7 +14,7 @@ public class ItemPickup : MonoBehaviour
     private ScoreManager scoreManager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
 

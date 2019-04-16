@@ -25,7 +25,7 @@ public class PowerUpManager : MonoBehaviour
     private float speed = 0.2f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         doubleObject = GameObject.Find("DoublePointsText");
         magnetObject = GameObject.Find("CoinMagnetText");

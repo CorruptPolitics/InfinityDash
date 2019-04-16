@@ -13,7 +13,7 @@ public class MusicSwitcher : MonoBehaviour
     public AudioClip heatSeekMusic;
     public AudioClip raceMusic;
 
-    void Start()
+    void Awake()
     {
         //Fetch the Dropdown GameObject
         MusicButton = GetComponent<Button>();

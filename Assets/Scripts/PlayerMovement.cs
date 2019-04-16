@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     //private bool playerJumpTrigger;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         player = GetComponent<Transform>();
         playerRigidbody = GetComponent<Rigidbody2D>();
