@@ -2127,6 +2127,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1955028851}
+    - target: {fileID: 4539400212368861256, guid: f9459eda17657d34092043de66ca46b5,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539400212368861256, guid: f9459eda17657d34092043de66ca46b5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539400212368861256, guid: f9459eda17657d34092043de66ca46b5,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539400212368861256, guid: f9459eda17657d34092043de66ca46b5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539400212368861256, guid: f9459eda17657d34092043de66ca46b5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9459eda17657d34092043de66ca46b5, type: 3}
 --- !u!1001 &5235460418806747444
@@ -2140,6 +2165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CoinMagnetCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235460420058844144, guid: 235183953d9750448b5e1ab7866bddaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5235460420058844145, guid: 235183953d9750448b5e1ab7866bddaa,
         type: 3}
@@ -2251,6 +2281,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1955028851}
+    - target: {fileID: 5235460418836614163, guid: 235183953d9750448b5e1ab7866bddaa,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235460418836614163, guid: 235183953d9750448b5e1ab7866bddaa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235460418836614163, guid: 235183953d9750448b5e1ab7866bddaa,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235460418836614163, guid: 235183953d9750448b5e1ab7866bddaa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235460418836614163, guid: 235183953d9750448b5e1ab7866bddaa,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235183953d9750448b5e1ab7866bddaa, type: 3}
 --- !u!1001 &5841803265286411001
@@ -2264,6 +2319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Upgrades
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841803264556420502, guid: e08579a9ec6c5254b901b9ad3c13acc7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5841803264556420491, guid: e08579a9ec6c5254b901b9ad3c13acc7,
         type: 3}
@@ -2380,10 +2440,20 @@ PrefabInstance:
       propertyPath: coinMagnet
       value: 
       objectReference: {fileID: 1335990984}
+    - target: {fileID: 5841803264988951158, guid: e08579a9ec6c5254b901b9ad3c13acc7,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5841803264838550546, guid: e08579a9ec6c5254b901b9ad3c13acc7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DoublePointsInMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841803264838550546, guid: e08579a9ec6c5254b901b9ad3c13acc7,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5841803265293154891, guid: e08579a9ec6c5254b901b9ad3c13acc7,
         type: 3}

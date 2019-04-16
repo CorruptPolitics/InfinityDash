@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     public Text timerText;
     public Text gemCounterText;
 
-    public bool isAlive;
+    private PlayerMovement thePlayer;
 
     public float startTime;
 
@@ -29,8 +29,9 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thePlayer = FindObjectOfType<PlayerMovement>();
         CheckValues();
-        isAlive = true;
+        thePlayer.isAlive = true;
         gemCounterText.text = "Gems: " + gemCount;
         startTime = Time.time;
     }
@@ -38,7 +39,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAlive)
+        if (thePlayer.isAlive)
         {
             float t = Time.time - startTime;
             string minutes = ((int)t / 60).ToString();
@@ -82,9 +83,10 @@ public class ScoreManager : MonoBehaviour
     }
 
     //Reset the timer
-    public void ResetTimer()
+    public void ResetStats()
     {
         startTime = Time.time;
+        pointsPerSecond = 1;
     }
 
     //Function created for multiple ways to add score

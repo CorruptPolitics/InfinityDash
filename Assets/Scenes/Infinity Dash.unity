@@ -188,6 +188,7 @@ MonoBehaviour:
   distanceTraveled: 100
   jumpHeight: 8
   jumpTime: 0.315
+  isAlive: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1981,7 +1982,6 @@ MonoBehaviour:
   highScoreText: {fileID: 560339244}
   timerText: {fileID: 1627808758}
   gemCounterText: {fileID: 865759774}
-  isAlive: 0
   startTime: 0
   scoreCount: 0
   highScoreCount: 0
@@ -3338,7 +3338,7 @@ PrefabInstance:
     - target: {fileID: 114953789979610534, guid: 448b58c4eab1c9f4f9f1add62c786273,
         type: 3}
       propertyPath: randomDiamondPercentage
-      value: 100
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 448b58c4eab1c9f4f9f1add62c786273, type: 3}

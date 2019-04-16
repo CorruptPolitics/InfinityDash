@@ -84,4 +84,14 @@ public class Upgrades : MonoBehaviour
         coinMagnet.enabled = true;
         Upgrade.enabled = false;
     }
+
+    public void UpgradeMagnet()
+    {
+
+    }
+
+    public void UpgradeDoublePoints()
+    {
+
+    }
 }

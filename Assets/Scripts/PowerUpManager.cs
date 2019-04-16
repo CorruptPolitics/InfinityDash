@@ -15,8 +15,10 @@ public class PowerUpManager : MonoBehaviour
     private Text doublePointsText;
     private Text coinMagnetText;
     private bool doublePointsPickup;
+    private int magnetPull = 10;
 
     private ScoreManager theScoreManager;
+    private PlayerMovement thePlayer;
     private Transform playerTransform;
     private GameObject[] theCoins;
     private float normalPointValue;
@@ -34,12 +36,13 @@ public class PowerUpManager : MonoBehaviour
         theScoreManager = FindObjectOfType<ScoreManager>();
         playerTransform = GameObject.Find("Player").transform;
         doublePointsPickup = false;
+        thePlayer = FindObjectOfType<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (powerUpActive)
+        if (powerUpActive && thePlayer.isAlive)
         {
             //set countdown timer in the heirarchy inspector. Countsdown every second.
             powerUpCountDown -= Time.deltaTime;
@@ -62,7 +65,7 @@ public class PowerUpManager : MonoBehaviour
                 theCoins = GameObject.FindGameObjectsWithTag("pickup");
                 foreach (GameObject coin in theCoins)
                 {
-                    if (Vector3.Distance(coin.transform.position, playerTransform.position) < 10)
+                    if (Vector3.Distance(coin.transform.position, playerTransform.position) < magnetPull)
                     {
                         coin.transform.position = Vector3.MoveTowards(coin.transform.position, playerTransform.position, speed);
                     }
@@ -85,6 +88,7 @@ public class PowerUpManager : MonoBehaviour
     //function that passes double points value and timer.  More values will be put here if we plan on more powerups.
     public void ActivatePowerUp(bool points, bool magnet, float timer)
     {
+        timer = 10f;
         doublePoints = points;
         coinMagnet = magnet;
         powerUpCountDown = timer;

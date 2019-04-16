@@ -7,7 +7,7 @@ public class PowerUps : MonoBehaviour
     //List of powerups.  So far just double points and magnet.
     public bool doublePoints;
     public bool coinMagnet;
-    public float  powerUpTimer;
+    private float powerUpTimer;
 
     private PowerUpManager thePowerUpManager;
 

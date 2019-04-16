@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerRigidbody;
 
     private bool isGrounded;
+    public bool isAlive;
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float groundCheckRadius;

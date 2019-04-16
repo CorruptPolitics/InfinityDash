@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private DestroyPlatforms[] platformList;
     private ScoreManager theScoreManager;
     private AudioSource theAudioSource;
+    private PowerUpManager thePowerUpManager;
     GameObject audioSource;
     public Text finalScore;
     public Text finalTime;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
         platformStartPoint = platformGenerator.position;
         //sets the player start point to the original position of the player game object
         playerStartPoint = thePlayer.transform.position;
+
+        thePowerUpManager = FindObjectOfType<PowerUpManager>();
 
         audioSource = GameObject.Find("Main Camera");
         theAudioSource = audioSource.GetComponent<AudioSource>();
@@ -57,9 +60,11 @@ public class GameManager : MonoBehaviour
         //Display Score
         finalScore.text = "Your Final " + theScoreManager.scoreText.text;
         //Stop timer
-        theScoreManager.isAlive = false;
+        thePlayer.isAlive = false;
         //Display Time
         finalTime.text = "Your Time This Run: " + theScoreManager.timerText.text;
+        //Disable any current powerups
+        thePowerUpManager.powerUpActive = false;
         //Display death canvas
         deathCanvas.gameObject.SetActive(true);
         //Stop the Music
@@ -84,9 +89,9 @@ public class GameManager : MonoBehaviour
         //Reset the score
         theScoreManager.scoreCount = 0;
         //Set player to be alive
-        theScoreManager.isAlive = true;
-        //Reset timer
-        theScoreManager.ResetTimer();
+        thePlayer.isAlive = true;
+        //Reset Stats
+        theScoreManager.ResetStats();
         //Begin new score increase
         theScoreManager.scoreIncreasing = true;
         //Start music 
