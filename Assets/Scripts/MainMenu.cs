@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour {
 
     public Canvas mainMenu;
     public Canvas credits;
+
 	// Use this for initialization
 	void Start () {
 
