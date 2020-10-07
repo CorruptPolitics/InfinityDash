@@ -7,7 +7,6 @@ public class PointGeneration : MonoBehaviour
     //Coin Objects
     public ObjectPooling coinPool;
     public float distanceBetweenCoins;
-    GameObject[] coins;
     private int coinNumber;
 
     //Other Point Pickups

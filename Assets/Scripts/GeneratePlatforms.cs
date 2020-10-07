@@ -31,7 +31,8 @@ public class GeneratePlatforms : MonoBehaviour {
 
     //These variables control powerups and when and where they spawn.
     public float powerUpHeight;
-    public ObjectPooling powerUpPool;
+    public ObjectPooling[] powerUpPool;
+    private int selectPowerup;
     public float powerUpPercentage;
 
     //public GameObject[] platformsToSpawn;
@@ -71,10 +72,11 @@ public class GeneratePlatforms : MonoBehaviour {
             {
                 heightChange = minHeight;
             }
+            selectPowerup = Random.Range(0, powerUpPool.Length);
 
             if (Random.Range(0f, 100f) < powerUpPercentage)
             {
-                GameObject newPowerUp = powerUpPool.GetPoolObject();
+                GameObject newPowerUp = powerUpPool[selectPowerup].GetPoolObject();
                 newPowerUp.transform.position = transform.position + new Vector3(distanceBetweenPlatforms / 2f, Random.Range(powerUpHeight / 2, powerUpHeight), 0f);
                 newPowerUp.SetActive(true);
             }

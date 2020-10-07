@@ -11,7 +11,7 @@ public class PowerUps : MonoBehaviour
 
     private PowerUpManager thePowerUpManager;
 
-    public Sprite[] powerUpIcons;
+    public Sprite powerUpIcons;
 
     // Start is called before the first frame update
     void Start()
@@ -22,22 +22,9 @@ public class PowerUps : MonoBehaviour
     void Awake()
     {
         thePowerUpManager = FindObjectOfType<PowerUpManager>();
-        int powerUpSelector = Random.Range(0, 2);
 
-        switch (powerUpSelector)
-        {
-            case 0:
-                gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;
-                doublePoints = true;
-                break;
-
-            case 1:
-                gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;              
-                coinMagnet = true;
-                break;
-        }
-
-        GetComponent<SpriteRenderer>().sprite = powerUpIcons[powerUpSelector];
+        gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;
+        GetComponent<SpriteRenderer>().sprite = powerUpIcons;
 
     }
 

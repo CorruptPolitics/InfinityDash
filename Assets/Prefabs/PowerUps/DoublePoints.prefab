@@ -107,9 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d187ef104b158468323bd00d2b23e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doublePoints: 0
+  doublePoints: 1
   coinMagnet: 0
-  powerUpTimer: 10
-  powerUpIcons:
-  - {fileID: 21300000, guid: 6e230e8dd6109954788bccbf549045f4, type: 3}
-  - {fileID: 21300000, guid: 0391cafac14ba6b44b5bd3903316c189, type: 3}
+  powerUpIcons: {fileID: 21300000, guid: 6e230e8dd6109954788bccbf549045f4, type: 3}

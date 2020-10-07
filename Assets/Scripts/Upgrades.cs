@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class Upgrades : MonoBehaviour
 {
     public Canvas Upgrade;
-    public Canvas doublePoints;
-    public Canvas coinMagnet;
     Scene theScene;
     GameObject theMainMenu;
 
@@ -15,8 +13,6 @@ public class Upgrades : MonoBehaviour
     void Awake()
     {
         Upgrade.enabled = false;
-        doublePoints.enabled = false;
-        coinMagnet.enabled = false;
         theScene = SceneManager.GetActiveScene();
         if (theScene.name == "Main Menu")
         {
@@ -49,39 +45,6 @@ public class Upgrades : MonoBehaviour
     public void BackToMenu()
     {
         theMainMenu.SetActive(true);
-        Upgrade.enabled = false;
-    }
-
-    public void DoublePointsUpgrade()
-    {
-        doublePoints.enabled = true;
-        Upgrade.enabled = false;
-    }
-
-    public void CoinMagnetUpgrade()
-    {
-        coinMagnet.enabled = true;
-        Upgrade.enabled = false;
-    }
-
-    public void BackToUpgrades()
-    {
-        doublePoints.enabled = false;
-        coinMagnet.enabled = false;
-        Upgrade.enabled = true;
-    }
-
-    public void DoublePointsInMenu()
-    {
-        theMainMenu.SetActive(false);
-        doublePoints.enabled = true;
-        Upgrade.enabled = false;
-    }
-
-    public void CoinMagnetInMenu()
-    {
-        theMainMenu.SetActive(false);
-        coinMagnet.enabled = true;
         Upgrade.enabled = false;
     }
 
