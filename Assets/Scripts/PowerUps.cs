@@ -38,7 +38,7 @@ public class PowerUps : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            thePowerUpManager.ActivatePowerUp(doublePoints, coinMagnet, powerUpTimer);
+            thePowerUpManager.ActivatePowerUp(doublePoints, coinMagnet);
         }
         gameObject.SetActive(false);
     }

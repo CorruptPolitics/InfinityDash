@@ -98,30 +98,5 @@ public class GameManager : MonoBehaviour
         theAudioSource.Play();
     }
 
-    /*declare co-routine named RestartGameCo using IEnumerator
-    public IEnumerator RestartGameCo()
-    {
-        //when the player dies stop the score from increasing
-        theScoreManager.scoreIncreasing = false;
-        //makes the player invisible while "dead"
-        thePlayer.gameObject.SetActive(false);
-        //sets a half second delay before game restarts
-        yield return new WaitForSeconds(0.5f);
-        //sets platforms with the PlatformDestroyer script attached to inactive and returns them to object pool
-        platformList = FindObjectsOfType<DestroyPlatforms>();
-        for (int i = 0; i < platformList.Length; i++)
-        {
-            platformList[i].gameObject.SetActive(false);
-        }
-
-        //sets the players transform position back to the player start point
-        thePlayer.transform.position = playerStartPoint;
-        //sets the platformGenerator's position back to the platform start point
-        platformGenerator.position = platformStartPoint;
-        //turns the player visible again
-        thePlayer.gameObject.SetActive(true);
-        theScoreManager.scoreCount = 0;
-        theScoreManager.scoreIncreasing = true;
-    }*/
 
 }

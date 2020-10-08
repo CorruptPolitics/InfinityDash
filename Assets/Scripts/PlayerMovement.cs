@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public Transform player;
     public float moveSpeed;
     private float moveSpeedStore;
 
@@ -44,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
     {
-        player = GetComponent<Transform>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         //playerCollider = GetComponent<Collider2D>();
         //playerAnimation = GetComponent<Animator>();

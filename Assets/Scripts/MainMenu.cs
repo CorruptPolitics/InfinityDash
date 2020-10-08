@@ -8,14 +8,7 @@ public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        credits.enabled = false;
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        credits.enabled = false;		
 	}
 
     public void StartGame()

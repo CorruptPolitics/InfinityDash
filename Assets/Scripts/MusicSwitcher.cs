@@ -29,6 +29,7 @@ public class MusicSwitcher : MonoBehaviour
         heatButton.SetActive(true);
         raceButton.SetActive(true);
         exitMusic.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void CloseMusicClips()
@@ -37,6 +38,7 @@ public class MusicSwitcher : MonoBehaviour
         heatButton.SetActive(false);
         raceButton.SetActive(false);
         exitMusic.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void StartHackMusic()
@@ -47,6 +49,7 @@ public class MusicSwitcher : MonoBehaviour
         heatButton.SetActive(false);
         raceButton.SetActive(false);
         exitMusic.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void StartHeatSeeker()
@@ -57,6 +60,7 @@ public class MusicSwitcher : MonoBehaviour
         heatButton.SetActive(false);
         raceButton.SetActive(false);
         exitMusic.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void StartRaceMusic()
@@ -67,5 +71,6 @@ public class MusicSwitcher : MonoBehaviour
         heatButton.SetActive(false);
         raceButton.SetActive(false);
         exitMusic.SetActive(false);
+        Time.timeScale = 1;
     }
 }

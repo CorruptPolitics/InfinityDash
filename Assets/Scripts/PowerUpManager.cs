@@ -23,6 +23,8 @@ public class PowerUpManager : MonoBehaviour
     private GameObject[] theCoins;
     private float normalPointValue;
     private float speed = 0.2f;
+    private float tier1Timer = 10f;
+    private float tier2Timer;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,6 +39,7 @@ public class PowerUpManager : MonoBehaviour
         playerTransform = GameObject.Find("Player").transform;
         doublePointsPickup = false;
         thePlayer = FindObjectOfType<PlayerMovement>();
+        powerUpCountDown = tier1Timer;
     }
 
     // Update is called once per frame
@@ -81,17 +84,16 @@ public class PowerUpManager : MonoBehaviour
                 doublePoints = false;
                 doublePointsPickup = false;
                 coinMagnet = false;
+                powerUpCountDown = tier1Timer;
             }
         }
     }
 
     //function that passes double points value and timer.  More values will be put here if we plan on more powerups.
-    public void ActivatePowerUp(bool points, bool magnet, float timer)
+    public void ActivatePowerUp(bool points, bool magnet)
     {
-        timer = 10f;
         doublePoints = points;
         coinMagnet = magnet;
-        powerUpCountDown = timer;
         normalPointValue = theScoreManager.pointsPerSecond;
         powerUpActive = true;
     }
