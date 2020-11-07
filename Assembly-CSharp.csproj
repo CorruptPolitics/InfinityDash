@@ -69,7 +69,7 @@
     <Compile Include="Assets\Scripts\DeathMenu.cs" />
     <Compile Include="Assets\Scripts\DestroyPlatforms.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\GeneratePlatforms.cs" />
+    <Compile Include="Assets\Scripts\GenerateObjects.cs" />
     <Compile Include="Assets\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\KillBox.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

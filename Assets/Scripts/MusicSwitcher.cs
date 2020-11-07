@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class MusicSwitcher : MonoBehaviour
 {
-    Button MusicButton;
     public GameObject hackButton;
     public GameObject heatButton;
     public GameObject raceButton;
@@ -16,7 +15,6 @@ public class MusicSwitcher : MonoBehaviour
     void Awake()
     {
         //Fetch the Dropdown GameObject
-        MusicButton = GetComponent<Button>();
         hackButton.SetActive(false);
         heatButton.SetActive(false);
         raceButton.SetActive(false);
